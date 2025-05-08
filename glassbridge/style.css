@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "Font";
+  src: url("../font/GameOfSquids-1GMVL.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.4s all;
+  font-family: "Font";
+  user-select: none;
+}
+
+body {
+  background: #121212;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.perm {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  z-index: -1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lives {
+  right: 0;
+  display: flex;
+  justify-content: right;
+}
+
+.score,
+.lives {
+  font-weight: bold;
+  color: white;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  img {
+    width: 30px;
+  }
+}
+
+.score{
+  opacity: 0.4;
+}
+
+.glass-bridge {
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  height: calc(100dvh - 50px);
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.finish,
+.start {
+  width: 100%;
+  max-width: 320px;
+  height: calc((100dvh - 50px) / 7);
+  background: #410a19;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.finish {
+  justify-content: center;
+  background-image: repeating-linear-gradient(
+    to right,
+    black 0,
+    black 10px,
+    white 10px,
+    white 20px
+  );
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 20px 10px;
+}
+
+.tiles {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  .tile-pair {
+    height: calc((100dvh - 50px) / 7);
+    width: 100%;
+    display: flex;
+    .tile {
+      background: linear-gradient(
+        -135deg,
+        rgba(0, 213, 255, 0.149),
+        rgba(255, 255, 255, 0)
+      );
+      border: 1px solid rgba(255, 255, 255, 0.229);
+      width: calc(50% - 10px);
+      height: calc((100dvh - 50px) / 7);
+      overflow: hidden;
+      position: relative;
+      &:nth-child(1) {
+        margin-right: 10px;
+      }
+      &:nth-child(2) {
+        margin-left: 10px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0%;
+        background: rgba(116, 204, 255, 0.119);
+        width: 40%;
+        height: 100%;
+        transform: skew(45deg);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 10%;
+        background: rgba(116, 204, 255, 0.075);
+        width: 20%;
+        height: 100%;
+        transform: skew(45deg);
+      }
+    }
+  }
+}
+
+.tile-pair {
+  animation: shine 3.8s infinite;
+  &:nth-child(4) {
+    animation-delay: 0.5s;
+  }
+  &:nth-child(3) {
+    animation-delay: 1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 1.5s;
+  }
+  &:nth-child(1) {
+    animation-delay: 2s;
+  }
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.tile-broken {
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.229);
+  width: calc(50% - 10px);
+  height: calc((100dvh - 50px) / 7);
+  overflow: hidden;
+  position: relative;
+  &:nth-child(1) {
+    margin-right: 10px;
+  }
+  &:nth-child(2) {
+    margin-left: 10px;
+  }
+}
+
+.player {
+  bottom: calc(((100dvh - 50px) / 7) * 0);
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: 50px;
+  height: 50px;
+  border: 8px solid white;
+  border-radius: 100px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 15px #fff, inset 0px 0px 15px #fff;
+  .player-face {
+    height: 25px;
+    margin-top: -1px;
+    width: 8px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: white;
+  }
+}
+
+.player-falling {
+  transform: scale(0.5) translate(-100%, -60%) !important;
+  transition: 1s !important;
+  opacity: 0.5 !important;
+}
+
+.msg-con {
+  width: 100vw;
+  height: 100dvh;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  .msg-box {
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 320px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    .picture {
+      height: 170px;
+      width: 170px;
+      border-radius: 100px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: 10px solid #ce4369;
+      box-shadow: 4px 4px 0px 10px #410a19;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    h1,
+    .msg {
+      color: #ce4369;
+      text-shadow: 4px 4px 0px #8e1b39;
+    }
+
+    button {
+      background: #ff9000;
+      outline: none;
+      border: none;
+      border-radius: 3px;
+      padding: 7px;
+      font-weight: bold;
+      box-shadow: 4px 4px 0px #b26500;
+    }
+  }
+}
+
+.landscape-block {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/soldier.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: rgba(0, 0, 0);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  color: #ce4369;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 3px 3px 0px #921435;
+  font-size: 25px;
+  align-items: stretch;
+  justify-content: space-between;
+  opacity: 1;
+}
+
+.landscape-block.active {
+  display: flex;
+}
