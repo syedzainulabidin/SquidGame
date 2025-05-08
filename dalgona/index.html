@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalgona</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://img.icons8.com/?size=192&id=kBTSavjXRrfp&format=png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="perm">
+        <div class="score">
+            <h1>00:<span class="timer">30</span></h1>
+        </div>
+        <div class="lives">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+        </div>
+    </div>
+
+    <div class="dalgona">
+        <div class="cookie circle" data-shape="circle">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" />
+                <circle cx="50" cy="50" r="40" />
+            </svg>
+            <div class="detector detector-circle"></div>
+            <div class="detector detector-circle"></div>
+            <div class="detector detector-circle"></div>
+            <div class="detector detector-circle"></div>
+            <div class="detector detector-circle"></div>
+
+        </div>
+        <div class="cookie star" data-shape="star">
+            <svg viewBox="0 0 473 473" xmlns="http://www.w3.org/2000/svg" stroke-width="5">
+                <polygon class="polygon"
+                    points="473,182 310,157 235,11 162,158 0,184 117,299 91,462 237,386 384,460 357,298"></polygon>
+                <polygon class="polygon"
+                    points="423,198 300,187 235,61 180,182 50,200 148,293 120,422 237,356 358,422 326,293">
+                </polygon>
+            </svg>
+            <div class="detector detector-star"></div>
+            <div class="detector detector-star"></div>
+            <div class="detector detector-star"></div>
+            <div class="detector detector-star"></div>
+            <div class="detector detector-star"></div>
+
+        </div>
+        <div class="cookie triangle" data-shape="triangle">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,10 90,80 10,80" />
+                <polygon points="50,20 82,76 18,76" />
+            </svg>
+            <div class="detector detector-triangle"></div>
+            <div class="detector detector-triangle"></div>
+            <div class="detector detector-triangle"></div>
+            <div class="detector detector-triangle"></div>
+            <div class="detector detector-triangle"></div>
+        </div>
+        <div class="cookie umbrella" data-shape="umbrella">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" transform="matrix(-1, 0, 0, 1, 0, 1)"
+                stroke-width="5">
+                <path
+                    d="m264.3,27.1v-16.1h-20.9v16.2c-129.6,5.6-232.4,97-232.4,207.5v2.1l16.7-1.1c0-21.3 21.9-38.4 48-38.4 27.1,0 49,18.1 49,39.4h20.9c0-22.4 21.9-39.4 49-39.4s49,18.1 49,39.4v203.4c0,34.1 26.1,60.7 58.4,60.7s58.4-26.6 58.4-60.7h-20.9c0,21.3-16.7,39.4-37.5,39.4s-37.5-18.1-37.5-39.4v-203.6c0.2-22.2 22-39.1 49-39.1 27.1,0 49,18.1 49,39.4h20.9c0-22.4 21.9-39.4 49-39.4 26.1,0 48,17 48,38.4h20.6v-1.1c0-111.7-105-203.9-236.7-207.6zm166.8,149c-24,0-45.9,11.7-58.4,28.8-11.5-17-33.4-28.8-58.4-28.8-24,0-45.9,11.7-59.4,29.8-11.5-17-33.4-28.8-58.4-28.8-24,0-45.9,11.7-58.4,28.8-11.5-17-33.4-28.8-58.4-28.8-15.6,0-30.2,4.3-41.7,11.7 25-81 113.6-140.6 217.9-140.6s192.9,59.7 216.9,139.6c-11.4-7.4-26-11.7-41.7-11.7z">
+                </path>
+            </svg>
+            <div class="detector detector-umbrella"></div>
+            <div class="detector detector-umbrella"></div>
+            <div class="detector detector-umbrella"></div>
+            <div class="detector detector-umbrella"></div>
+            <div class="detector detector-umbrella"></div>
+        </div>
+    </div>
+
+    <h1 class="obj">Choose a Shape</h1>
+
+    <div id="landscape-block" class="landscape-block">
+        <div>Obey the rules or face elimination</div>
+    </div>
+
+    <div class="canvas">
+        <div class="main-cookie">
+        </div>
+        <div class="landing"></div>
+    </div>
+
+    <div class="msg-con">
+        <div class="msg-box">
+            <div class="picture">
+                <img src="../images/angry.jpg" alt="" class="player-picture">
+            </div>
+            <h1>Player 456</h1>
+            <h1 class="msg"></h1>
+            <div class="msg-btn">
+                <button class="msg-btn-action"></button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="app.js"></script>
+
+</html>
