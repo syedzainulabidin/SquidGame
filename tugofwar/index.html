@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tug of War</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://img.icons8.com/?size=192&id=kBTSavjXRrfp&format=png" type="image/x-icon">
+
+</head>
+
+<body>
+    <div class="perm">
+        <div class="score">
+            <h1>00:<span class="timer">15</span></h1>
+        </div>
+        <div class="lives">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+            <img src="../images/live.png" alt="">
+        </div>
+    </div>
+    <div class="tugofwar">
+        <div class="line"></div>
+        <div class="canvas">
+            <div class="player"></div>
+            <div class="rope"></div>
+            <div class="soldier">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,20 82,76 18,76" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="msg-con">
+        <div class="msg-box">
+            <div class="picture">
+                <img src="../images/angry.jpg" alt="" class="player-picture">
+            </div>
+            <h1>Player 456</h1>
+            <h1 class="msg"></h1>
+            <div class="msg-btn">
+                <button class="msg-btn-action"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="landscape-block" class="landscape-block">
+        <div>Obey the rules or face elimination</div>
+    </div>
+
+
+</body>
+<script src="app.js"></script>
+
+</html>
