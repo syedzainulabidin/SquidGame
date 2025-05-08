@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "Font";
+  src: url("../font/GameOfSquids-1GMVL.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.4s all;
+  font-family: "Font";
+  user-select: none;
+}
+
+body {
+  background: #121212;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.perm {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  z-index: -1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lives {
+  right: 0;
+  display: flex;
+  justify-content: right;
+}
+
+.score,
+.lives {
+  font-weight: bold;
+  color: white;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  img {
+    width: 30px;
+  }
+}
+
+.score > h1 {
+  opacity: 0.3;
+}
+/* !adsssssss */
+
+.marble-game {
+  height: calc(100vh - 50px);
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  /* background: rgba(255, 0, 0, 0.161); */
+  justify-content: center;
+  position: relative;
+}
+
+.info {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: white;
+  position: absolute;
+  top: 0;
+}
+
+.player,
+.soldier {
+  display: flex;
+  margin-top: 50px;
+  width: 50%;
+  flex-direction: column;
+  /* align-items: start; */
+  /* background: rebeccapurple; */
+  .hand-img {
+    display: flex;
+    position: relative;
+    /* background: #921435; */
+    width: 100%;
+    img {
+      min-width: 150px;
+      width: 40%;
+    }
+  }
+  .marbles {
+    width: 30%;
+    min-width: 150px;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    .marble {
+      color: #121212;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      width: 20%;
+      aspect-ratio: 1;
+      background: #980042;
+      position: relative;
+      box-shadow: 0px 0px 10px #000;
+      /* filter: blur(1px); */
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 70%;
+        left: 70%;
+        transform: translate(-50%, -50%);
+        width: 25%;
+        border-radius: 100px;
+        aspect-ratio: 1;
+        filter: blur(4px);
+        background: #f44786;
+      }
+    }
+  }
+  .empty {
+    background: #121212 !important;
+    &::before {
+      background: #252525 !important;
+    }
+  }
+  .decision-btn {
+    padding: 5px 0px;
+    width: 30%;
+    min-width: 150px;
+    display: flex;
+    .btn {
+      width: 50%;
+      color: white;
+      font-size: 1.1em;
+      border-radius: 0.5rem;
+      border: 0.3rem solid white;
+      background: #005350;
+    }
+  }
+}
+
+.decision-btn-glow{
+  .btn{
+    animation: glowBtn 1.5s infinite;    
+  }
+}
+
+.player>.marbles>.marble-glow{
+  animation: glowMarble 1.5s infinite;    
+}
+
+@keyframes glowBtn {
+  0%, 100%{
+    background: #005350;
+  }  
+  50%{
+    background: #249f9c;
+    box-shadow: 0px 0px 30px #249f9c;
+  }
+}
+
+@keyframes glowMarble {
+  0%, 100%{
+    background: #980042;
+  }  
+  50%{
+    background: #d00a60;
+    box-shadow: 0px 0px 30px #d00a60;
+  }
+}
+
+.soldier {
+  align-items: end;
+}
+.soldier > .hand-img {
+  justify-content: end;
+}
+
+.revert {
+  transform: rotateY(180deg);
+}
+
+.status {
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  font-size: 25px;
+}
+
+.status-player {
+  left: 100%;
+}
+.status-soldier {
+  right: 100%;
+}
+
+.status-active {
+  animation: increament 2s forwards;
+}
+
+@keyframes increament {
+  0% {
+    opacity: 1;
+    top: 80%;
+  }
+
+  100% {
+    top: 0%;
+    opacity: 0;
+  }
+}
+
+/* !adsssssss */
+
+.msg-con {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  .msg-box {
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 320px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    .picture {
+      height: 170px;
+      width: 170px;
+      border-radius: 100px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: 10px solid #ce4369;
+      box-shadow: 4px 4px 0px 10px #410a19;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    h1,
+    .msg {
+      color: #ce4369;
+      text-shadow: 4px 4px 0px #8e1b39;
+    }
+
+    button {
+      background: #ff9000;
+      outline: none;
+      border: none;
+      border-radius: 3px;
+      padding: 7px;
+      font-weight: bold;
+      box-shadow: 4px 4px 0px #b26500;
+    }
+  }
+}
+
+.landscape-block {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/soldier.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: rgba(0, 0, 0);
+  backdrop-filter: blur(15px);
+  z-index: 1000;
+  color: #ce4369;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 3px 3px 0px #921435;
+  font-size: 25px;
+  align-items: stretch;
+  justify-content: space-between;
+  opacity: 1;
+}
+
+.landscape-block.active {
+  display: flex;
+}
